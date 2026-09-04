@@ -11,9 +11,7 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:coverage": "vitest run --coverage",
-    "licenses": "node scripts/check-licenses.mjs",
-    "licenses:json": "node scripts/check-licenses.mjs --json"
+    "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
     "react": "^18.3.1",

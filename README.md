@@ -129,24 +129,27 @@ deterministically.
 
 This project is MIT licensed (see [LICENSE](LICENSE)).
 
-Every dependency chosen directly is MIT. A fully MIT-only dependency *tree* is
-not achievable on npm — transitive packages under ISC, BSD-2/3-Clause, and
-Apache-2.0 are unavoidable — but all of those are permissive and compatible with
-redistributing this project under MIT.
+**Everything that ships to the browser is MIT.** The entire runtime dependency
+tree is five packages — `react`, `react-dom`, `scheduler`, `loose-envify`, and
+`js-tokens` — all MIT.
 
-`npm run licenses` audits the full installed tree and fails if anything falls
-outside the permissive allow-list. The script is dependency-free and part of
-this repo, so the audit tooling is MIT too.
+The remaining ~222 packages are build and test tooling (Vite, Vitest, jsdom and
+their transitive dependencies). They never reach your users. They are MIT, ISC,
+BSD-2/3-Clause, Apache-2.0, BlueOak-1.0.0, MIT-0, and one CC-BY-4.0
+(`caniuse-lite`, a browser-support database used at build time).
 
-```
-Scanned 227 installed packages.
+None of these licenses:
 
-   189  MIT
-    18  ISC
-     6  BSD-3-Clause
-     5  Apache-2.0
-     5  BlueOak-1.0.0
-     2  BSD-2-Clause
-     1  MIT-0
-     1  CC-BY-4.0
-```
+- require payment or royalties of any kind,
+- restrict commercial use,
+- restrict use in a public or closed-source project,
+- or impose copyleft obligations on your code.
+
+One nuance worth knowing: MIT, BSD, and Apache-2.0 are *permissive but not
+attribution-free*. They ask that the copyright notice be preserved when you
+redistribute the software itself. Shipping a bundled web app is the ordinary,
+universally accepted use of these licenses and needs no visible credit on your
+site — but if you ever redistribute the source or a library derived from it,
+keep the notices intact. `caniuse-lite`'s CC-BY-4.0 attribution clause covers
+its *database*, which this project consumes at build time and does not
+redistribute.
