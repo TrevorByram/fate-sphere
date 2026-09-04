@@ -1,7 +1,7 @@
 {
   "$comment": "Edit this file to change the Fate Sphere. It is fetched at runtime, so AWS Amplify redeploys pick it up without any code changes. 'chance' values are percentages and should total 100.",
   "initialAnswer": {
-    "text": "Ask me anything",
+    "text": "Roll to find out!",
     "tone": "neutral"
   },
   "answers": [
