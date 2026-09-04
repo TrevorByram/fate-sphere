@@ -5,15 +5,9 @@
     "tone": "neutral"
   },
   "answers": [
-    { "text": "It is certain", "chance": 10, "tone": "positive" },
-    { "text": "Without a doubt", "chance": 10, "tone": "positive" },
-    { "text": "Yes, definitely", "chance": 10, "tone": "positive" },
-    { "text": "You may rely on it", "chance": 10, "tone": "positive" },
-    { "text": "Most likely", "chance": 10, "tone": "positive" },
-    { "text": "Reply hazy, try again", "chance": 10, "tone": "neutral" },
-    { "text": "Ask again later", "chance": 10, "tone": "neutral" },
-    { "text": "Cannot predict now", "chance": 10, "tone": "neutral" },
-    { "text": "Don't count on it", "chance": 10, "tone": "negative" },
-    { "text": "Very doubtful", "chance": 10, "tone": "negative" }
+    { "text": "It is certain", "chance": 25, "tone": "positive" },
+    { "text": "Without a doubt", "chance": 25, "tone": "positive" },
+    { "text": "Yes, definitely", "chance": 25, "tone": "positive" },
+    { "text": "You may rely on it", "chance": 25, "tone": "positive" }
   ]
 }
