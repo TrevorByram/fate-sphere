@@ -63,7 +63,9 @@ and the file is directly editable in the deployed bundle.
 
 - **`initialAnswer`** — shown before the ball has ever been rolled. It does not
   have to appear in `answers`, and it can never be rolled.
-- **`answers[].text`** — the answer displayed in the window.
+- **`answers[].text`** — the answer displayed in the window. Keep it under
+  roughly 24 characters; longer text is truncated to three lines so it can never
+  spill outside the ball.
 - **`answers[].chance`** — the percent chance of that answer. Values across all
   answers should total `100`.
 - **`answers[].tone`** — optional styling hint: `positive` (green), `negative`
@@ -77,6 +79,27 @@ The config is validated leniently so a typo can never take the site down:
 - If the chances do not total 100, they are treated as **relative weights** and
   scaled proportionally, so the ball still behaves sensibly.
 - Every correction is reported as a warning, shown on-screen in dev builds only.
+
+## Responsive design
+
+The layout is fluid rather than breakpoint-driven, and was verified in a real
+browser from 320x568 up to 2560x1440, including landscape phones (812x375) and
+tablets.
+
+- The ball is sized as `clamp(13rem, min(80vw, 56vh), 34rem)` — constrained by
+  the *smaller* viewport axis, so it fits short landscape screens and still
+  fills a large monitor instead of sitting there as a marble.
+- The answer text is sized in container query units (`cqi`) against the ball
+  itself, not the viewport. This matters: sizing it in `vw` while the ball was
+  bounded by `vh` let the two decouple, and the text clipped straight through
+  the triangle on landscape phones.
+- Headings, spacing, and the hint scale with `clamp()` on `vmin`, so nothing
+  jumps at a breakpoint.
+- No horizontal page scroll at any tested size.
+
+`FateSphere.responsive.test.js` guards the strategy — jsdom does not do layout,
+so it asserts that the container-relative sizing stays in place rather than
+re-measuring pixels.
 
 ## Deploying to AWS Amplify
 

@@ -7,8 +7,15 @@
 
 .fate-sphere {
   position: relative;
-  width: min(20rem, 70vw, 52vh);
+  /* Scales with the smaller viewport axis so the ball fits landscape phones and
+     still fills a large monitor, bounded at both ends. */
+  width: clamp(13rem, min(80vw, 56vh), 34rem);
   aspect-ratio: 1;
+  /* Everything inside the ball is sized in `cq` units against this box, so the
+     answer text stays proportional to the ball at any viewport aspect ratio
+     rather than tracking the viewport independently. */
+  container-type: inline-size;
+  container-name: ball;
   border: none;
   border-radius: 50%;
   padding: 0;
@@ -44,7 +51,7 @@
   position: absolute;
   inset: 50% auto auto 50%;
   transform: translate(-50%, -50%);
-  width: 46%;
+  width: 52%;
   aspect-ratio: 1;
   border-radius: 50%;
   background: radial-gradient(circle at 40% 35%, #ffffff 0%, #ededf2 60%, #cfcfd8 100%);
@@ -62,14 +69,24 @@
   place-items: center;
   /* Push the text down into the wide part of the triangle so it stays inside
      the clipped edges rather than spilling out near the apex. */
-  padding: 40% 0 8%;
+  padding: 50% 0 6%;
   box-sizing: border-box;
 }
 
 .fate-sphere__answer {
-  max-width: 52%;
+  max-width: 56%;
   text-align: center;
-  font-size: clamp(0.5rem, 1.5vw, 0.78rem);
+  font-size: 4.3cqi;
+  /* Safety nets for author-supplied text: long words break instead of clipping
+     the triangle, and anything past three lines is truncated rather than
+     spilling outside the clip path. Keep answers under ~24 characters. */
+  overflow-wrap: break-word;
+  hyphens: auto;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: 0.02em;
@@ -99,7 +116,7 @@
 .fate-sphere-hint {
   margin: 0;
   color: rgba(255, 255, 255, 0.72);
-  font-size: 0.95rem;
+  font-size: clamp(0.85rem, 0.6rem + 0.5vw, 1.15rem);
   letter-spacing: 0.03em;
 }
 
