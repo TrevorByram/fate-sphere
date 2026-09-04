@@ -1,7 +1,7 @@
-<h1 align="center">🎱 Fate Sphere</h1>
+<h1 align="center">🔮 Fate Sphere</h1>
 
 <p align="center">
-  A configurable Fate Sphere for the web. Ask a question, shake the ball, get your answer.
+  A configurable fortune-telling orb for the web. Ask a question, shake the sphere, get your answer.
 </p>
 
 <p align="center">

@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "type": "module",
   "license": "MIT",
-  "description": "A configurable Fate Sphere web app built with React and Vite.",
+  "description": "A configurable fortune-telling orb built with React and Vite.",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
