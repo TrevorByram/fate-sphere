@@ -1,0 +1,27 @@
+version: 2
+updates:
+  # Application dependencies.
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    groups:
+      # Patch and minor bumps are batched into a single PR to keep the noise
+      # down; majors still arrive individually so they get a proper review.
+      dev-dependencies:
+        dependency-type: development
+        update-types:
+          - minor
+          - patch
+      production-dependencies:
+        dependency-type: production
+        update-types:
+          - minor
+          - patch
+
+  # Keep the CI workflow's own actions current.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
