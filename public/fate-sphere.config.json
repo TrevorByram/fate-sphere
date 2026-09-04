@@ -1,0 +1,19 @@
+{
+  "$comment": "Edit this file to change the Fate Sphere. It is fetched at runtime, so AWS Amplify redeploys pick it up without any code changes. 'chance' values are percentages and should total 100.",
+  "initialAnswer": {
+    "text": "Ask me anything",
+    "tone": "neutral"
+  },
+  "answers": [
+    { "text": "It is certain", "chance": 10, "tone": "positive" },
+    { "text": "Without a doubt", "chance": 10, "tone": "positive" },
+    { "text": "Yes, definitely", "chance": 10, "tone": "positive" },
+    { "text": "You may rely on it", "chance": 10, "tone": "positive" },
+    { "text": "Most likely", "chance": 10, "tone": "positive" },
+    { "text": "Reply hazy, try again", "chance": 10, "tone": "neutral" },
+    { "text": "Ask again later", "chance": 10, "tone": "neutral" },
+    { "text": "Cannot predict now", "chance": 10, "tone": "neutral" },
+    { "text": "Don't count on it", "chance": 10, "tone": "negative" },
+    { "text": "Very doubtful", "chance": 10, "tone": "negative" }
+  ]
+}

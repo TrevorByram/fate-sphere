@@ -1,0 +1,26 @@
+.star-field {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.star-field__star {
+  position: absolute;
+  border-radius: 50%;
+  background: #ffffff;
+  opacity: 0.25;
+  animation-name: twinkle;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.15; transform: scale(0.8); }
+  50%      { opacity: 0.9;  transform: scale(1.25); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .star-field__star { animation: none; opacity: 0.35; }
+}

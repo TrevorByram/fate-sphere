@@ -1,0 +1,23 @@
+# AWS Amplify build settings.
+#
+# VITE_SITE_HEADER is read from the Amplify console's environment variables
+# (App settings -> Environment variables) and baked into the bundle at build
+# time. The answer list lives in public/fate-sphere.config.json, which ships as a
+# static asset — edit and redeploy to change the answers without touching code.
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm ci
+        - npm test
+    build:
+      commands:
+        - npm run build
+  artifacts:
+    baseDirectory: dist
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
